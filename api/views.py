@@ -10,9 +10,14 @@ from rest_framework.response import Response
 
 class MatchViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows matches to be viewed or edited.
-    list: Return all matches, ordered by startTime.
-    detail : Return a match instance.
+    retrieve:
+    Return the given match.
+
+    list:
+    Return a list of all the existing matches.
+
+    create:
+    Create a new match instance.
     """
     queryset = Match.objects.all()
     serializer_class = MatchListSerializer # for list view
@@ -20,8 +25,11 @@ class MatchViewSet(viewsets.ModelViewSet):
     filter_backends = (DjangoFilterBackend, OrderingFilter,)
     ordering_fields = '__all__'
 
-    # to find which serializer to user `list` or `detail`
+
     def get_serializer_class(self):
+        """
+        Determins which serializer to user `list` or `detail`
+        """
         if self.action == 'retrieve':
             if hasattr(self, 'detail_serializer_class'):
                 return self.detail_serializer_class

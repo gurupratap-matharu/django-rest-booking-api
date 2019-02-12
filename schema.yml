@@ -1,0 +1,109 @@
+info:
+  description: ''
+  title: ''
+  version: ''
+openapi: 3.0.0
+paths:
+  /api/match/:
+    get:
+      description: This viewset automatically provides `list` and `detail` actions.
+      operationId: match_list
+      parameters:
+      - in: query
+        name: page
+        schema:
+          description: A page number within the paginated result set.
+          title: Page
+          type: integer
+      - in: query
+        name: ordering
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      tags:
+      - match
+    post:
+      description: This viewset automatically provides `list` and `detail` actions.
+      operationId: match_create
+      tags:
+      - match
+  /api/match/{id}/:
+    delete:
+      description: This viewset automatically provides `list` and `detail` actions.
+      operationId: match_delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this match.
+          title: ID
+          type: integer
+      - in: query
+        name: ordering
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      tags:
+      - match
+    get:
+      description: This viewset automatically provides `list` and `detail` actions.
+      operationId: match_read
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this match.
+          title: ID
+          type: integer
+      - in: query
+        name: ordering
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      tags:
+      - match
+    patch:
+      description: This viewset automatically provides `list` and `detail` actions.
+      operationId: match_partial_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this match.
+          title: ID
+          type: integer
+      - in: query
+        name: ordering
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      tags:
+      - match
+    put:
+      description: This viewset automatically provides `list` and `detail` actions.
+      operationId: match_update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this match.
+          title: ID
+          type: integer
+      - in: query
+        name: ordering
+        schema:
+          description: Which field to use when ordering the results.
+          title: Ordering
+          type: string
+      tags:
+      - match
+servers:
+- url: ''

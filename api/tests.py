@@ -4,21 +4,6 @@ from rest_framework import status
 from rest_framework.test import APITestCase, RequestsClient, URLPatternsTestCase
 
 class MatchTests(APITestCase):
-    # urlpatterns = [
-    #     path('api/', include('api.urls')),
-    # ]
-
-    # def test_get_match(self):
-    #     """
-    #     Ensure we can get a match object.
-    #     """
-    #     # client = RequestsClient()
-    #     # response = client.get('http://testserver/users/')
-    #     # self.assertEqual(response.status_code, 200)
-    #     url = ('http://127.0.0.1:8000/api/match')
-    #     response = self.client.get(url, format='json')
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     # self.assertEqual(len(response.data), 1)
 
     def test_create_match(self):
         """

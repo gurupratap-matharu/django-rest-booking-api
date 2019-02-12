@@ -50,6 +50,8 @@ class MatchViewSet(viewsets.ModelViewSet):
         existing odds.
         """
         message = request.data.pop('message_type')
+
+        # check if incoming api request is for new event creation
         if message == "NewEvent":
             event = request.data.pop('event')
             sport = event.pop('sport')
@@ -62,9 +64,8 @@ class MatchViewSet(viewsets.ModelViewSet):
             match = Match.objects.create(**event, sport=sport, market=markets)
             return Response(status=status.HTTP_201_CREATED)
 
+        # check if incoming api request is for updation of odds
         elif message == "UpdateOdds":
-            print("VEER you entered Update odds.")
-            print(request.data)
             event = request.data.pop('event')
             markets = event.pop('markets')[0]
             selections = markets.pop('selections')
@@ -74,5 +75,6 @@ class MatchViewSet(viewsets.ModelViewSet):
                 s.save()
             match = Match.objects.get(id=event['id'])
             return Response(status=status.HTTP_201_CREATED)
+
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)

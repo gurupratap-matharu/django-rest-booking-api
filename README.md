@@ -55,9 +55,10 @@ That's it, we're done!
 ## How to run?
 
 If running on local machine do
-
+```python
 python manage.py runserver
 ./manage.py runserver
+```
 
 You can now open the API in your browser at http://127.0.0.1:8000/api/, and view your new 'match' API.
 For this exercise we are not using authentication. So all users have full CRUD access.
@@ -76,7 +77,8 @@ You can also interact with the API using command line tools such as curl. For ex
 
 Example
 
-Let's take a look at a quick example of using REST framework to build a simple model-backed API for accessing users and groups.
+Let's take a look at a quick example of using REST framework to build a simple model-backed API.
+
 
 Startup up a new project like so...
 ```python

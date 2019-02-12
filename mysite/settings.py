@@ -25,7 +25,8 @@ SECRET_KEY = '7c(g$vcn7@qo%9o=p1iq(+d0(w7199&_*#z@-=(^4oho+97=xo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver',
+                    'django-rest-booking-api.herokuapp.com']
 
 
 # Application definition
@@ -140,4 +141,4 @@ STATICFILES_DIRS = (
 )
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

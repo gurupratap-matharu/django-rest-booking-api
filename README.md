@@ -1,39 +1,68 @@
-# A RestAPI implemented in Django-rest-framework for a booking App!
+
+<h1 align="center">Django RestApi Nested Serializers</h1>
+
+<img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/hero.jpg" alt="drawing" width="1920"/>
+
+## LIVE
+
+<https://midware.herokuapp.com/api/v1/>
+
+### Browsable Request API
+
+<img src="https://github.com/gurupratap-matharu/midware/blob/master/staticfiles/img/request.png" alt="drawing" width="1920"/>
+
+## Motivation 🎯
+
+- App suggestion based on interview assignment
+- Deployment with docker on heroku
+- Working with tools that are free for open source
+- Working with payment methods like stripe and REST apis
+
+## Features ✨
+
+- Manage data about sporting events to allow users to place bets.
+- Provide API to receive data from external providers and update our system with the latest data about events in real time.
+- Provide access to support team to allow the to see the most recent data for each event and to query data.
+- multiple connected models with foreign keys
+- nested serializers which permit showing related model in json
+- Updates only part of data based on request
+- Versioning of api possible see `/api/v1/`
+- Fast response time
+- Easily customizable with Login | Logout | reset password features and rest-token authentication
+- Make file for faster setup and reusability
+
+## Development setup 🛠
+
+Steps to locally setup development after cloning the project.
+
+`docker-compose up -d --build`
+or simple
+`make build` ;)
 
 ## Requirements
 
 Python (3.4, 3.5, 3.6, 3.7)
-Django (1.11, 2.0, 2.1)
+Django (2.0, 2.1, 3.1)
 
-## Django Booking App Features
-
-* Manage data about sporting events to allow users to place bets.
-* Provide API to receive data from external providers and update our system with the latest data about events in real time.
-* Provide access to support team to allow the to see the most recent data for each event and to query data.
-
-## Implementation Details:
+## Implementation Details
 
 * Data:
-    - Markets are unique per Sport
-    - Selections are unique per Market
+  - Markets are unique per Sport
+  - Selections are unique per Market
 
 * Receiving data:
-    - For our purposes we can assume this API will be used by a single provider, so no need to keep track of which provider is sending the
+  - For our purposes we can assume this API will be used by a single provider, so no need to keep track of which provider is sending the
     message.
 
-## API Features:
+## API Features
 
 * Listing all the match stored in the system
 * Filtering of listed items based on query parameters like `name`, `sport`, `ordering`
 * Detailed view of a particular match using its `id`
 * Uses nested serializers for detailed view for full details
-* Retrieve match by id. Ex http://127.0.0.1:8000/api/match/994839351740
-* Retrieve football matches ordered by start_time Ex: http://127.0.0.1:8000/api/match/?sport=football&ordering=startTime
-* Retrieve matches filtered by name Ex: http://127.0.0.1:8000/api/match/?name=Real%20Madrid%20vs%20Barcelona
-
-## Specification for sports data sent by external providers
-
-The external providers will send the data in a specific format:
+* Retrieve match by id. Ex <http://127.0.0.1:8000/api/match/994839351740>
+* Retrieve football matches ordered by start_time Ex: <http://127.0.0.1:8000/api/match/?sport=football&ordering=startTime>
+* Retrieve matches filtered by name Ex: <http://127.0.0.1:8000/api/match/?name=Real%20Madrid%20vs%20Barcelona>
 
 ## Message Types
 
@@ -44,23 +73,16 @@ the only field that will updated is the selection odds.
 * UpdateOdds:
 There is an update for the odds field (all the other fields remain unchanged)
 
-## Installation
-
-Install using pip...
-
-pip install -r requirements.txt
-
-That's it, we're done!
-
-## How to run?
+## How to run
 
 If running on local machine do
+
 ```python
 python manage.py runserver
 ./manage.py runserver
 ```
 
-You can now open the API in your browser at http://127.0.0.1:8000/api/, and view your new 'match' API.
+You can now open the API in your browser at <http://127.0.0.1:8000/api/>, and view your new 'match' API.
 For this exercise we are not using authentication. So all users have full CRUD access.
 
 If you don't use the database provided on your local machine you need to do the
@@ -68,19 +90,18 @@ migrations and create a super user.
 
 python manage.py createsuperuser
 
-Access admin panel at http://127.0.0.1:8000/admin/
+Access admin panel at <http://127.0.0.1:8000/admin/>
 From the admin panel you can do more operations like add, create and delete models,
 users, do grouping, etc.
 
 You can also interact with the API using command line tools such as curl. For example, to list the match endpoint:
 
-
 Example
 
 Let's take a look at a quick example of using REST framework to build a simple model-backed API.
 
-
 Startup up a new project like so...
+
 ```python
 pip install django
 pip install djangorestframework
@@ -88,7 +109,9 @@ django-admin startproject example .
 ./manage.py migrate
 ./manage.py createsuperuser
 ```
+
 Now edit the `example/urls.py` module in your project:
+
 ```python
 from django.conf.urls import url, include
 from django.contrib.auth.models import User
@@ -117,6 +140,7 @@ router = routers.DefaultRouter()
 router.register(r'match', MatchViewSet)
 
 ```
+
 ```python
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
@@ -126,9 +150,11 @@ urlpatterns = [
 ]
 
 ```
+
 We'd also like to configure a couple of settings for our API.
 
 Add the following to your settings.py module:
+
 ```python
 INSTALLED_APPS = (
     ...  # Make sure to include the default installed apps here.
@@ -143,6 +169,7 @@ REST_FRAMEWORK = {
     ]
 }
 ```
+
 Documentation & Support
 
-Full documentation for the project is available at https://www.django-rest-framework.org/.
+Full documentation for the project is available at <https://www.django-rest-framework.org/>.
